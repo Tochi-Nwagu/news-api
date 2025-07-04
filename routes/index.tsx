@@ -1,6 +1,6 @@
 //import React from 'react';
 import MainLayout from '../src/pages/Layout/MainLayout';
-import Home from '../src/pages/Home/Home';
+import Home from '../src/pages/Home/Dashboard';
 import Login from '../src/pages/Auth/Login';
 import Register from '../src/pages/Auth/Register';
 const routes = [
