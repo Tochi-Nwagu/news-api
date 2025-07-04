@@ -1,0 +1,14 @@
+.home {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-stories {
+  width: 300px;
+  height: fit-content;
+}

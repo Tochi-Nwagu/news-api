@@ -5,8 +5,20 @@ import Footer from '../../components/Footer/Footer';
 const MainLayout = () => {
   return (
     <div>
-      <Navbar />
-      <Outlet />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'stretch',
+          flex: '1',
+          gap: '20px',
+        }}
+      >
+        <Navbar />
+        <div style={{ flex: 1 }}>
+          <Outlet />
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
