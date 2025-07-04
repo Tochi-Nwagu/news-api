@@ -1,5 +1,6 @@
 //import React from 'react';
 import MainLayout from '../src/pages/Layout/MainLayout';
+
 import Login from '../src/pages/Auth/Login';
 import Register from '../src/pages/Auth/Register';
 import AuthLayout from '../src/pages/Layout/AuthLayout';

@@ -4,11 +4,16 @@ import Footer from '../../components/Footer/Footer';
 
 const MainLayout = () => {
   return (
+
     <div>
+      <div style={{display: "flex"}}>
       <Navbar />
       <Outlet />
+      </div>
+      
       <Footer />
     </div>
+    
   );
 };
 
