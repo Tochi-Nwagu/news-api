@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import type { NewsItem } from '../../type/type';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const SportNews: React.FC = () => {
   const [newsItem, setNewsItems] = useState<NewsItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const fetchNews = async () => {
@@ -27,10 +29,12 @@ const SportNews: React.FC = () => {
       console.log(res);
     } catch (err) {
       console.error('Something went wrong', err);
+    } finally {
+      setLoading(false);
     }
   };
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/news/${encodeURIComponent(news.title)}`, {
+    navigate(`/dashboard/dashboard/news/${encodeURIComponent(news.title)}`, {
       state: { news },
     });
   };
@@ -39,29 +43,38 @@ const SportNews: React.FC = () => {
   }, []);
   return (
     <div>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'Repeat(5, 1fr)',
-          gap: '10px',
-        }}
-      >
-        {newsItem.map((news) => (
-          <div key={news.id} style={{ width: '300px', paddingBottom: '10px' }}>
-            <img
-              src={news.imageUrl}
-              width="300px"
-              style={{ objectFit: 'cover' }}
-            />
-            <h3>{news.title}</h3>
-            <p>{news.description}</p>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <h3>{news.category}</h3>
-              <button onClick={() => handleReadMore(news)}>Read More</button>
+      <h1>Sports News</h1>
+      {loading ? (
+        <Spinner animation="grow" variant="primary" />
+      ) : (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'Repeat(5, 1fr)',
+            gap: '10px',
+            marginBottom: '40px',
+          }}
+        >
+          {newsItem.map((news) => (
+            <div
+              key={news.id}
+              style={{ width: '300px', paddingBottom: '10px' }}
+            >
+              <img
+                src={news.imageUrl}
+                width="300px"
+                style={{ objectFit: 'cover' }}
+              />
+              <h3>{news.title}</h3>
+              <p>{news.description}</p>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <h3>{news.category}</h3>
+                <button onClick={() => handleReadMore(news)}>Read More</button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

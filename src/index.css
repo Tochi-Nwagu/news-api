@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -70,3 +71,8 @@ button:focus-visible {
 a {
   text-decoration: none;
 }
+=======
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+>>>>>>> d76c80255216044b833b816e09e28172c7cce7e8

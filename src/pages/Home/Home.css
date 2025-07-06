@@ -1,4 +1,4 @@
-.home {
+/* .home {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -12,3 +12,8 @@
   width: 300px;
   height: fit-content;
 }
+.Home {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+} */

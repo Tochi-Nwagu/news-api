@@ -15,25 +15,25 @@ const Navbar = () => {
           <Link to="/" className="nav-link">
             Home
           </Link>
-          <Link to="/login" className="nav-link">
-            Login
+          <Link to="/dashboard" className="nav-link">
+            Dashboard
           </Link>
-          <Link to="/register" className="nav-link">
-            Register
+          <Link to="/about" className="nav-link">
+            About
           </Link>
-          <Link to="/health" className="nav-link">
+          <Link to="/dashboard/dashboard/health" className="nav-link">
             Health
           </Link>
-          <Link to="/business" className="nav-link">
+          <Link to="/dashboard/dashboard/business" className="nav-link">
             Business
           </Link>
-          <Link to="/technology" className="nav-link">
+          <Link to="/dashboard/dashboard/technology" className="nav-link">
             Technology
           </Link>
-          <Link to="/sport" className="nav-link">
+          <Link to="/dashboard/dashboard/sport" className="nav-link">
             Sport
           </Link>
-          <Link to="/entertainment" className="nav-link">
+          <Link to="/dashboard/dashboard/entertainment" className="nav-link">
             Entertainment
           </Link>
         </nav>

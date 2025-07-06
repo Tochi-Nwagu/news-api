@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { NewsItem } from '../../type/type';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
 // interface BusinessNewsProps {
@@ -12,7 +12,7 @@ const apikey = import.meta.env.VITE_API_KEY;
 const BusinessNews: React.FC = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
-
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const fetchNews = async () => {
@@ -41,7 +41,7 @@ const BusinessNews: React.FC = () => {
   };
 
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/news/${encodeURIComponent(news.title)}`, {
+    navigate(`/dashboard/dashboard/news/${id}`, {
       state: { news },
     });
   };

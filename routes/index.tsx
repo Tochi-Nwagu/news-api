@@ -1,17 +1,37 @@
 //import React from 'react';
 import MainLayout from '../src/pages/Layout/MainLayout';
+
 import Login from '../src/pages/Auth/Login';
 import Register from '../src/pages/Auth/Register';
-import AuthLayout from '../src/pages/Layout/AuthLayout';
-import Home from '../src/pages/Home/Home';
-import BusinessNews from '../src/components/News/BusinessNews';
-import EntertainmentNews from '../src/components/News/EntertainmentNews';
-import TechnologyNews from '../src/components/News/TechnologyNews';
-import SportNews from '../src/components/News/SportNews';
-import HealthNews from '../src/components/News/HealthNews';
+// import AuthLayout from '../src/pages/Layout/AuthLayout';
 import Dashboard from '../src/pages/Dashboard/Dashboard';
-import NewsPage from '../src/components/News/NewsPage';
+import { Navigate } from 'react-router-dom';
+import Home from '../src/pages/Home/Home';
+import About from '../src/pages/About';
+import BusinessNews from '../src/pages/Dashboard/BusinessNews';
+import DashboardLayout from '../src/pages/Layout/DashboardLayout';
+import EntertainmentNews from '../src/pages/Dashboard/EntertainmentNews';
+import HealthNews from '../src/pages/Dashboard/HealthNews';
+import NewsPage from '../src/pages/Dashboard/NewsPage';
+import SportNews from '../src/pages/Dashboard/SportNews';
+import TechnologyNews from '../src/pages/Dashboard/TechnologyNews';
+
+let ifLogin = true;
+
+const ProtectedR = ({ children }) => {
+  return ifLogin ? children : <Navigate to="login" />;
+};
+
 const routes = [
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+  },
+
   {
     path: '/',
     element: <MainLayout />,
@@ -21,60 +41,46 @@ const routes = [
         element: <Home />,
       },
       {
-        path: 'health',
-        element: <HealthNews />,
+        path: 'about',
+        element: <About />,
+      },
+    ],
+  },
+  {
+    path: 'dashboard',
+    element: (
+      <ProtectedR>
+        <DashboardLayout />
+      </ProtectedR>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
       },
       {
-        path: 'business',
+        path: 'dashboard/business',
         element: <BusinessNews />,
       },
       {
-        path: 'entertainment',
+        path: 'dashboard/entertainment',
         element: <EntertainmentNews />,
       },
       {
-        path: 'technology',
-        element: <TechnologyNews />,
+        path: 'dashboard/health',
+        element: <HealthNews />,
       },
       {
-        path: 'sport',
+        path: 'dashboard/news/:id',
+        element: <NewsPage />,
+      },
+      {
+        path: 'dashboard/sport',
         element: <SportNews />,
       },
       {
-        path: '/news/:id',
-        element: <NewsPage />,
-      },
-    ],
-  },
-  //Auth
-  {
-    path: 'login',
-    element: <AuthLayout />,
-    children: [
-      {
-        index: true,
-        element: <Login />,
-      },
-    ],
-  },
-  {
-    path: 'register',
-    element: <AuthLayout />,
-    children: [
-      {
-        index: true,
-        element: <Register />,
-      },
-    ],
-  },
-  //DashBoard
-  {
-    path: 'dashboard',
-    element: <Dashboard />,
-    children: [
-      {
-        index: true,
-        Element: <Dashboard />,
+        path: 'dashboard/technology',
+        element: <TechnologyNews />,
       },
     ],
   },
