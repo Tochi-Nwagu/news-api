@@ -1,20 +1,21 @@
 //import React from 'react';
-import MainLayout from '../src/pages/Layout/MainLayout';
 
-import Login from '../src/pages/Auth/Login';
-import Register from '../src/pages/Auth/Register';
 // import AuthLayout from '../src/pages/Layout/AuthLayout';
-import Dashboard from '../src/pages/Dashboard/Dashboard';
+
 import { Navigate } from 'react-router-dom';
-import Home from '../src/pages/Home/Home';
-import About from '../src/pages/About';
-import BusinessNews from '../src/pages/Dashboard/BusinessNews';
-import DashboardLayout from '../src/pages/Layout/DashboardLayout';
-import EntertainmentNews from '../src/pages/Dashboard/EntertainmentNews';
-import HealthNews from '../src/pages/Dashboard/HealthNews';
-import NewsPage from '../src/pages/Dashboard/NewsPage';
-import SportNews from '../src/pages/Dashboard/SportNews';
-import TechnologyNews from '../src/pages/Dashboard/TechnologyNews';
+
+import MainLayout from '../pages/Layout/MainLayout';
+import Login from '../pages/Auth/Login';
+import Register from '../pages/Auth/Register';
+import Home from '../pages/Home/Home';
+import DashboardLayout from '../pages/Layout/DashboardLayout';
+import Dashboard from '../pages/Dashboard/Dashboard';
+import BusinessNews from '../pages/Dashboard/BusinessNews';
+import EntertainmentNews from '../pages/Dashboard/EntertainmentNews';
+import HealthNews from '../pages/Dashboard/HealthNews';
+import NewsPage from '../pages/Dashboard/NewsPage';
+import SportNews from '../pages/Dashboard/SportNews';
+import TechnologyNews from '../pages/Dashboard/TechnologyNews';
 
 let ifLogin = true;
 
@@ -39,10 +40,6 @@ const routes = [
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: 'about',
-        element: <About />,
       },
     ],
   },
