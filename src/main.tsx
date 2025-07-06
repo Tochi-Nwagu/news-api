@@ -4,8 +4,8 @@ import './index.css';
 // import App from './App.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import routes from './routes';
 
-import routes from '../routes/index.tsx';
 // import { initializeApp } from "firebase/app";
 
 const router = createBrowserRouter(routes);
