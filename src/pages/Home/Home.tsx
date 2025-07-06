@@ -10,14 +10,14 @@ const Home = () => {
         <Login />
       </div>
 
-      <div style={{ backgroundColor: '#bbc3cb', width: '100%' }}>
+      <div style={{ backgroundColor: '#710955', width: '100%' }}>
         <img
           src={logoImg}
           alt="Check-point"
           height="100px"
           style={{ objectFit: 'cover' }}
         />
-        <h1>Welcome to checkpoint News</h1>
+        <h1 style={{color: 'white'}}>Welcome to Checkpoint News</h1>
       </div>
     </div>
   );

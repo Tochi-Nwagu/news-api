@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { NewsItem } from '../../type/type';
-import axios from 'axios';
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -53,6 +53,7 @@ const TechnologyNews: React.FC = () => {
         <div
           style={{
             display: 'grid',
+            gap: '20px',
             gridTemplateColumns: 'repeat(5, 1fr)',
             marginLeft: '10px',
           }}
@@ -73,7 +74,7 @@ const TechnologyNews: React.FC = () => {
               <h3>{news.title}</h3>
               <p>{news.description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <h3>{news.category}</h3>
+                <h5>{news.category}</h5>
                 <button onClick={() => handleReadMore(news)}>Read More</button>
               </div>
             </div>

@@ -58,6 +58,7 @@ const BusinessNews: React.FC = () => {
         <div
           style={{
             display: 'grid',
+            gap: '20px',
             gridTemplateColumns: 'repeat(5, 1fr)',
             marginLeft: '10px',
           }}
@@ -68,8 +69,8 @@ const BusinessNews: React.FC = () => {
               style={{
                 width: '300px',
                 marginBottom: '10px',
-                border: '1px solid #fda',
-                boxShadow: 'rgba(256, 134, 126, 0)',
+                // border: '1px solid #fda',
+                // boxShadow: 'rgba(256, 134, 126, 0)',
                 height: 'fit-content',
               }}
             >

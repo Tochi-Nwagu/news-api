@@ -2,16 +2,17 @@
   width: 250px;
   display: flex;
   flex-direction: column;
-  background-color: #bbc3cb;
-
+  /* background-color: #bbc3cb; */
+  background-color: rgb(113, 9, 85) !important;
   height: 100%;
+  color: white;
 }
 
 .nav-link {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: #000;
+  color: white;
   font-size: 20px;
   margin: 30px;
   text-align: center;

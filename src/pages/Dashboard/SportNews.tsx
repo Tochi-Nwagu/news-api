@@ -51,7 +51,7 @@ const SportNews: React.FC = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'Repeat(5, 1fr)',
-            gap: '10px',
+            gap: '20px',
             marginBottom: '40px',
           }}
         >
@@ -68,7 +68,7 @@ const SportNews: React.FC = () => {
               <h3>{news.title}</h3>
               <p>{news.description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <h3>{news.category}</h3>
+                <h5>{news.category}</h5>
                 <button onClick={() => handleReadMore(news)}>Read More</button>
               </div>
             </div>
