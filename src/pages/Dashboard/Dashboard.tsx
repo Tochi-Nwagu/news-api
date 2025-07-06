@@ -37,10 +37,11 @@ const Dashboard: React.FC = () => {
 
   return (
     <div
-      className="Home"
+      className="Dashboard"
       style={{
         padding: '20px',
         display: 'grid',
+        gap: '20px',
         gridTemplateColumns: 'repeat(4, 1fr)',
       }}
     >
@@ -56,7 +57,7 @@ const Dashboard: React.FC = () => {
           )}
           <p>{article.description}</p>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h3>{article.category}</h3>
+            <h5>{article.category}</h5>
             <button onClick={() => handleReadMore(article)}>Read More</button>
           </div>
         </div>

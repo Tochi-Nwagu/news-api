@@ -121,7 +121,10 @@ const Login: React.FC = () => {
                 <div className="mt-3 text-center">
                   <span>Don't have an account? </span>
                   {/* <Link to="/register">Register here</Link> */}
-                  <button onClick={handleRegister}>Register</button>
+                  {/* <button className='Register-btn w-50' onClick={handleRegister}>Register</button> */}
+                  <Button variant="secondary" type="submit" className="w-50" onClick={handleRegister}>
+                    Register
+                  </Button>
                 </div>
               </Card.Body>
             </Card>

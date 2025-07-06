@@ -1,8 +1,8 @@
 .footer {
-  background-color: #000;
+background-color: rgb(113, 9, 85) !important;
   color: #fff;
   display: flex;
-  text-align: center;
+  justify-content: center;
   position: fixed;
   bottom: 0;
   width: 100%;

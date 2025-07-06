@@ -10,7 +10,7 @@ const NewsPage = () => {
   if (!news) return <p>News not found</p>;
   return (
     <div style={{ width: '800px', height: '95vh', marginBottom: '10px' }}>
-      <h3>{news.category}</h3>
+      <h5>{news.category}</h5>
       <img src={news.imageUrl} width={'900px'} />
       <h3>{news.title}</h3>
       <p>{news.description}</p>

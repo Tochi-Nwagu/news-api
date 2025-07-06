@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>&copy;{currentYear}</p>
-      <p>Build by Yellow Night Vanguard Team</p>
+      <p>Build by Hint of Yellow Vanguard Team</p>
     </div>
   );
 };

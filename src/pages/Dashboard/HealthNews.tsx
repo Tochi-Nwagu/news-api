@@ -54,6 +54,7 @@ const HealthNews: React.FC = () => {
         <div
           style={{
             display: 'grid',
+            gap: '20px',
             gridTemplateColumns: 'repeat(5, 1fr)',
             marginLeft: '10px',
           }}
@@ -74,7 +75,7 @@ const HealthNews: React.FC = () => {
               <h3>{news.title}</h3>
               <p>{news.description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <h3>{news.category}</h3>
+                <h5>{news.category}</h5>
                 <button onClick={() => handleReadMore(news)}>Read More</button>
               </div>
             </div>

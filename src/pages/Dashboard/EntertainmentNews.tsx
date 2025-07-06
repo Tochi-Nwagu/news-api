@@ -56,6 +56,7 @@ const EntertainmentNews: React.FC = () => {
         <div
           style={{
             display: 'grid',
+            gap: '20px',
             gridTemplateColumns: 'repeat(5, 1fr)',
             marginLeft: '10px',
           }}

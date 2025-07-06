@@ -18,9 +18,9 @@ const Navbar = () => {
           <Link to="/dashboard" className="nav-link">
             Dashboard
           </Link>
-          <Link to="/about" className="nav-link">
+          {/* <Link to="/about" className="nav-link">
             About
-          </Link>
+          </Link> */}
           <Link to="/dashboard/dashboard/health" className="nav-link">
             Health
           </Link>
@@ -31,7 +31,7 @@ const Navbar = () => {
             Technology
           </Link>
           <Link to="/dashboard/dashboard/sport" className="nav-link">
-            Sport
+            Sports
           </Link>
           <Link to="/dashboard/dashboard/entertainment" className="nav-link">
             Entertainment
