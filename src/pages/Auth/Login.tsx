@@ -1,99 +1,135 @@
 // import React from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import type { User } from '../../type/type';
+import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 
+const Login: React.FC = () => {
+  // const [formData, setFormData] = useState<Omit<User, 'id'>>({
+  //   username: '',
+  //   email: '',
+  //   password: '',
+  // });
 
-const Login = () => {
-
-  //Initialize firebase authentication and navigation
-  const auth = getAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  //   //state variables for managing authentication state, email, password and error messages
+  //     const [authing, setAuthing] = useState(false);
 
-  //state variables for managing authentication state, email, password and error messages
-    const [authing, setAuthing] = useState(false);
-    const [email,setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
+  //     // const [message, setMessage] = useState('');
+  //     const [error, setError] = useState('');
 
-// function to handle the register button click
- const handleRegister= () =>{
-  navigate('/register');
- }
+  // // function to handle the register button click
 
-//Function to handle Login with email and password
-    const handleLogin = async(e: string) =>{
-      e.preventDefault();
-    setAuthing(true);
-    setError('');
-    
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
 
-    //use firebase to sign in with email and password
-signInWithEmailAndPassword(auth, email, password)
-.then(response => {
-  console.log(response.user.uid);
-  navigate('/');
-})
-.catch(error =>{
-  console.log(error);
-  setError(error.message);
-  setAuthing(false);
-})
+    const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
 
-}
+    //check if User exist
+    const matchedUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
 
-return <>
-<div className='w-full h-screen flex'>
-{/* //Left half of screen - Background styling */}
+    //If user exist
+    if (matchedUser) {
+      //retrive
+      localStorage.setItem('currentUser', JSON.stringify(matchedUser));
+      alert(`Welcome, ${matchedUser.username}`);
+      navigate('/dashboard');
+    } else {
+      alert('User not found');
+    }
+  };
 
-<div className='w-1/2 h-full flex flex bg-[#282c34] items-center justify-center'>
-</div>
+  const handleRegister = () => {
+    navigate('/register');
+  };
+  //Function to handle Login with email and password
+  // const handleLogin = async(e: string) =>{
+  //   e.preventDefault();
+  // setAuthing(true);
+  // setError('');
 
-{/* Right half of the screen - sign up form */}
-<div className='w-1/2 h-full bg-[#1a1a1a]flex flex-col p-20 justify-center'>
-<div className='w-full flex flex-col max-w-[450px] mx auto'>
+  //use firebase to sign in with email and password
+  // signInWithEmailAndPassword(auth, email, password)
+  // .then(response => {
+  //   console.log(response.user.uid);
+  //   navigate('/');
+  // })
+  // .catch(error =>{
+  //   console.log(error);
+  //   setError(error.message);
+  //   setAuthing(false);
+  // })
 
-{/* // Header section with title and welcome message */}
-<div className='w-full flex flex-col mb-10 text-white'>
-  <h3 className='text-4x1 font-bold mb-2'>Login</h3>
-  <p className='text-lg mb-4'> Welcome! Please enter your information below to begin.</p>
-</div>
+  // }
 
-{/* Input fields for email, password and confirm password */}
-<div className='formContent' >
-     <form className='log' onSubmit={handleLogin}>
-       <input
-          type='email'
-          className=''
-          placeholder='Enter your email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}/>
-      <input
-          type='password'
-          placeholder='Enter your password'
-          className=''
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}/>
-     </form>
+  return (
+    <>
+      {/* Left half of screen - Background styling */}
 
-{/* Button to log in with email and password */}
-<div className=''>
-  <button>Login</button>
+      {/* <div className="w-1/2 h-full flex flex bg-[#282c34] items-center justify-center"></div> */}
 
-     <p>Don't have an account?</p>
-<button type='submit' onClick={(e)=>handleRegister}>Register</button>
+      {/* Right half of the screen - sign up form */}
+      {/* <div className="w-1/2 h-full bg-[#1a1a1a]flex flex-col p-20 justify-center">
+          <div className="w-full flex flex-col max-w-[450px] mx auto"> */}
 
-</div>
+      {/* Input fields for email, password and confirm password */}
+      <div>
+        {/* Header section with title and welcome message */}
+        <div className="mt-5">
+          <p style={{ textAlign: 'center' }}>
+            Welcome! Please enter your information below to begin.
+          </p>
+        </div>
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <Card>
+              <Card.Body>
+                <Card.Title className="mb-4">Login</Card.Title>
+                <Form onSubmit={handleLogin}>
+                  <Form.Group className="mb-3" controlId="loginEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </Form.Group>
 
-</div>
-   </div>;
-</div>
-   </div>
+                  <Form.Group className="mb-3" controlId="loginPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </Form.Group>
 
-   </>
+                  <Button variant="secondary" type="submit" className="w-100">
+                    Login
+                  </Button>
+                </Form>
+
+                <div className="mt-3 text-center">
+                  <span>Don't have an account? </span>
+                  {/* <Link to="/register">Register here</Link> */}
+                  <button onClick={handleRegister}>Register</button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    </>
+  );
 };
 
- 
-   
 export default Login;

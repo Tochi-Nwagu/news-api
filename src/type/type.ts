@@ -1,5 +1,6 @@
 //newsItem
 export interface NewsItem {
+  id: string;
   author: string;
   title: string;
   description: string;
@@ -17,3 +18,11 @@ export type NewsCategory =
   | 'science'
   | 'technology'
   | 'general';
+
+//User
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  password: string;
+}
