@@ -78,10 +78,16 @@ const Login: React.FC = () => {
           <div className="w-full flex flex-col max-w-[450px] mx auto"> */}
 
       {/* Input fields for email, password and confirm password */}
-      <div>
+      <div style={{ marginTop: '100px', paddingTop: '90px' }}>
         {/* Header section with title and welcome message */}
         <div className="mt-5">
-          <p style={{ textAlign: 'center' }}>
+          <p
+            style={{
+              textAlign: 'center',
+              fontSize: '20px',
+              fontWeight: 'bolder',
+            }}
+          >
             Welcome! Please enter your information below to begin.
           </p>
         </div>
@@ -122,7 +128,12 @@ const Login: React.FC = () => {
                   <span>Don't have an account? </span>
                   {/* <Link to="/register">Register here</Link> */}
                   {/* <button className='Register-btn w-50' onClick={handleRegister}>Register</button> */}
-                  <Button variant="secondary" type="submit" className="w-50" onClick={handleRegister}>
+                  <Button
+                    variant="secondary"
+                    type="submit"
+                    className="w-50"
+                    onClick={handleRegister}
+                  >
                     Register
                   </Button>
                 </div>
