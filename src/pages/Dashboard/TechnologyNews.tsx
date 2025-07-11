@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { NewsItem } from '../../type/type';
-import axios from "axios";
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -17,7 +17,7 @@ const TechnologyNews: React.FC = () => {
       );
 
       const articles: NewsItem[] = res.data.articles.map(
-        (item: any, index: number) => ({
+        (item: NewsItem, index: number) => ({
           id: index.toString(),
           title: item.title,
           description: item.description,
@@ -67,7 +67,7 @@ const TechnologyNews: React.FC = () => {
               }}
             >
               <img
-                src={news.imageUrl}
+                src={news.urlToImage}
                 width="300px"
                 style={{ objectFit: 'cover' }}
               />

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
-import type { User } from '../../type/type'; // adjust the path as needed
-import Home from '../Home/Home';
+import type { User } from '../../type/type';
 
 const Register: React.FC = () => {
   const [formData, setFormData] = useState<Omit<User, 'id'>>({

@@ -22,7 +22,7 @@ const BusinessNews: React.FC = () => {
       );
 
       const articles: NewsItem[] = res.data.articles.map(
-        (item: any, index: number) => ({
+        (item: NewsItem, index: number) => ({
           id: index.toString(),
           title: item.title,
           description: item.description,
@@ -75,7 +75,7 @@ const BusinessNews: React.FC = () => {
               }}
             >
               <img
-                src={news.imageUrl}
+                src={news.urlToImage}
                 width="300px"
                 style={{ objectFit: 'cover' }}
               />

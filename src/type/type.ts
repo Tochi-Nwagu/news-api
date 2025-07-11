@@ -6,7 +6,7 @@ export interface NewsItem {
   description: string;
   category: NewsCategory;
   content: string;
-  imageUrl: string;
+  urlToImage: string;
 }
 
 //category

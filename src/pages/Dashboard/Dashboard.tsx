@@ -6,7 +6,6 @@ import type { NewsItem } from '../../type/type';
 
 const Dashboard: React.FC = () => {
   const [articles, setArticles] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,8 +19,6 @@ const Dashboard: React.FC = () => {
       console.log(response.data);
     } catch (error) {
       console.error('Error fetching news:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
