@@ -16,7 +16,7 @@ const EntertainmentNews: React.FC = () => {
         `https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=${apikey}`
       );
       const articles: NewsItem[] = res.data.articles.map(
-        (item: any, index: number) => ({
+        (item: NewsItem, index: number) => ({
           id: index.toString(),
           title: item.title,
           description: item.description,
@@ -70,7 +70,7 @@ const EntertainmentNews: React.FC = () => {
               }}
             >
               <img
-                src={news.imageUrl}
+                src={news.urlToImage}
                 width="200px"
                 style={{ objectFit: 'cover' }}
               />
