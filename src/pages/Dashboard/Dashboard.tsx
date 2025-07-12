@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { NewsItem } from '../../type/type';
+import Spinner from 'react-bootstrap/Spinner';
 // import('./Home.css');
 
 const Dashboard: React.FC = () => {
   const [articles, setArticles] = useState<NewsItem[]>([]);
-
+   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -19,6 +20,8 @@ const Dashboard: React.FC = () => {
       console.log(response.data);
     } catch (error) {
       console.error('Error fetching news:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -33,7 +36,16 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <div
+   <div>
+      <h1
+        style={{ textAlign: 'center', padding: '10px', paddingBottom: '40px' }}
+      >
+         Daily News
+      </h1>
+        {loading ? (
+        <Spinner animation="grow" variant="primary" />
+      ) :(
+       <div
       className="Dashboard"
       style={{
         padding: '20px',
@@ -60,6 +72,9 @@ const Dashboard: React.FC = () => {
         </div>
       ))}
     </div>
+    )
+   </div>
+  
   );
 };
 
