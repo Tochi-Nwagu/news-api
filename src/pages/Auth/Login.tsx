@@ -1,7 +1,7 @@
 // import React from 'react';
 // import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import type { User } from '../../type/type';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 

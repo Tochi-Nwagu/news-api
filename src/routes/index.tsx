@@ -1,8 +1,5 @@
-//import React from 'react';
-
-// import AuthLayout from '../src/pages/Layout/AuthLayout';
-
 import { Navigate } from 'react-router-dom';
+import type { ReactNode } from 'react';
 
 import MainLayout from '../pages/Layout/MainLayout';
 import Login from '../pages/Auth/Login';
@@ -17,10 +14,10 @@ import NewsPage from '../pages/Dashboard/NewsPage';
 import SportNews from '../pages/Dashboard/SportNews';
 import TechnologyNews from '../pages/Dashboard/TechnologyNews';
 
-let ifLogin = true;
+const ifLogin = true;
 
-const ProtectedR = ({ children }) => {
-  return ifLogin ? children : <Navigate to="login" />;
+const ProtectedR = ({ children }: { children: ReactNode }) => {
+  return ifLogin ? children : <Navigate to="/login" />;
 };
 
 const routes = [
@@ -56,27 +53,27 @@ const routes = [
         element: <Dashboard />,
       },
       {
-        path: 'dashboard/business',
+        path: 'business',
         element: <BusinessNews />,
       },
       {
-        path: 'dashboard/entertainment',
+        path: 'entertainment',
         element: <EntertainmentNews />,
       },
       {
-        path: 'dashboard/health',
+        path: 'health',
         element: <HealthNews />,
       },
       {
-        path: 'dashboard/news/:id',
+        path: 'news/:id',
         element: <NewsPage />,
       },
       {
-        path: 'dashboard/sport',
+        path: 'sport',
         element: <SportNews />,
       },
       {
-        path: 'dashboard/technology',
+        path: 'technology',
         element: <TechnologyNews />,
       },
     ],
