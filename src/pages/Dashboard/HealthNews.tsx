@@ -22,7 +22,7 @@ const HealthNews: React.FC = () => {
           id: index.toString(),
           title: item.title,
           description: item.description,
-          imageUrl: item.urlToImage,
+          urlToImage: item.urlToImage,
           content: item.content,
           category: 'health',
         })
