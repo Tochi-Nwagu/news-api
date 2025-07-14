@@ -3,6 +3,7 @@ import type { NewsItem } from '../../type/type';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import('./BusinessNews.css');
 
 // interface BusinessNewsProps {
 //   news: NewsItem;
@@ -41,7 +42,7 @@ const BusinessNews: React.FC = () => {
   };
 
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/dashboard/dashboard/news/${id}`, {
+    navigate(`/dashboard/news/${id}`, {
       state: { news },
     });
   };
@@ -51,18 +52,11 @@ const BusinessNews: React.FC = () => {
   }, []);
   return (
     <div>
-      <h1>World's Business News</h1>
+      <h1 className="main-heading">World's Business News</h1>
       {loading ? (
         <Spinner animation="grow" variant="primary" />
       ) : (
-        <div
-          style={{
-            display: 'grid',
-            gap: '20px',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            marginLeft: '10px',
-          }}
-        >
+        <div className="business">
           {newsItems.map((news) => (
             <div
               key={news.id}

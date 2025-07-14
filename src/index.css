@@ -1,28 +1,29 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.Register-btn{
-    background-color: rgb(113, 9, 85);
-    border-radius: 10%;
-    color: white;
-    border-color:rgb(113, 9, 85) ;
+.Register-btn {
+  background-color: rgb(113, 9, 85);
+  border-radius: 10%;
+  color: white;
+  border-color: rgb(113, 9, 85);
 }
 
-.w-50, .w-100{
-background-color: rgb(113, 9, 85) !important;
-border-color:rgb(113, 9, 85) ;
+.w-50,
+.w-100 {
+  background-color: rgb(113, 9, 85) !important;
+  border-color: rgb(113, 9, 85);
 }
 
-button{
-background-color: rgb(113, 9, 85) !important;
-border-color:rgb(113, 9, 85) ;
-color: white;
+button {
+  background-color: rgb(113, 9, 85) !important;
+  border-color: rgb(113, 9, 85);
+  color: white;
 }
 
-h5{
-    text-transform: capitalize;
+h5 {
+  text-transform: capitalize;
 }

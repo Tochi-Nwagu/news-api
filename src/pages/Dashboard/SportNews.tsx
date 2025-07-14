@@ -3,6 +3,7 @@ import type { NewsItem } from '../../type/type';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import('./SportNews.css');
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const SportNews: React.FC = () => {
@@ -34,7 +35,7 @@ const SportNews: React.FC = () => {
     }
   };
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/dashboard/dashboard/news/${encodeURIComponent(news.title)}`, {
+    navigate(`/dashboard/news/${encodeURIComponent(news.title)}`, {
       state: { news },
     });
   };
@@ -43,18 +44,11 @@ const SportNews: React.FC = () => {
   }, []);
   return (
     <div>
-      <h1>Sports News</h1>
+      <h1 className="main-heading">Sports News</h1>
       {loading ? (
         <Spinner animation="grow" variant="primary" />
       ) : (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'Repeat(5, 1fr)',
-            gap: '20px',
-            marginBottom: '40px',
-          }}
-        >
+        <div className="sport">
           {newsItem.map((news) => (
             <div
               key={news.id}

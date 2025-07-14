@@ -3,11 +3,12 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { NewsItem } from '../../type/type';
 import Spinner from 'react-bootstrap/Spinner';
+import('./Dashboard.css');
 // import('./Home.css');
 
 const Dashboard: React.FC = () => {
   const [articles, setArticles] = useState<NewsItem[]>([]);
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ const Dashboard: React.FC = () => {
   };
 
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/dashboard/dashboard/news/${id}`, {
+    navigate(`/dashboard/news/${id}`, {
       state: { news },
     });
   };
@@ -36,45 +37,46 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-   <div>
+    <div>
       <h1
+        className="main-heading"
         style={{ textAlign: 'center', padding: '10px', paddingBottom: '40px' }}
       >
-         Daily News
+        Daily News
       </h1>
-        {loading ? (
+      {loading ? (
         <Spinner animation="grow" variant="primary" />
-      ) :(
-       <div
-      className="Dashboard"
-      style={{
-        padding: '20px',
-        display: 'grid',
-        gap: '20px',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-      }}
-    >
-      {articles.map((article, index) => (
-        <div key={index} style={{ marginBottom: '30px' }}>
-          <h3>{article.title}</h3>
-          {article.urlToImage && (
-            <img
-              src={article.urlToImage}
-              alt={article.title}
-              style={{ width: '300px', height: 'auto', marginBottom: '10px' }}
-            />
-          )}
-          <p>{article.description}</p>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h5>{article.category}</h5>
-            <button onClick={() => handleReadMore(article)}>Read More</button>
-          </div>
+      ) : (
+        <div className="dashboard">
+          {articles.map((article, index) => (
+            <div key={index} style={{ marginBottom: '30px' }}>
+              <h3>{article.title}</h3>
+              {article.urlToImage && (
+                <img
+                  src={article.urlToImage}
+                  alt={article.title}
+                  style={{
+                    width: '300px',
+                    height: 'auto',
+                    marginBottom: '10px',
+                  }}
+                />
+              )}
+              <p>{article.description}</p>
+              <div
+                style={{ display: 'flex', justifyContent: 'space-between' }}
+                className="display-text"
+              >
+                <h5>{article.category}</h5>
+                <button onClick={() => handleReadMore(article)}>
+                  Read More
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
-    )}
-   </div>
-  
   );
 };
 

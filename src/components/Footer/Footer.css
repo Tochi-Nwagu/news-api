@@ -1,5 +1,5 @@
 .footer {
-background-color: rgb(113, 9, 85) !important;
+  background-color: rgb(113, 9, 85) !important;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -7,4 +7,5 @@ background-color: rgb(113, 9, 85) !important;
   bottom: 0;
   width: 100%;
   gap: 20px;
+  padding-top: 20px;
 }

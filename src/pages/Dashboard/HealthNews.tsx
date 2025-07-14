@@ -3,6 +3,7 @@ import type { NewsItem } from '../../type/type';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import('./HealthNews.css');
 
 const apikey = import.meta.env.VITE_API_KEY;
 
@@ -37,7 +38,7 @@ const HealthNews: React.FC = () => {
   };
 
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/dashboard/dashboard/news/${encodeURIComponent(news.title)}`, {
+    navigate(`/dashboard/news/${encodeURIComponent(news.title)}`, {
       state: { news },
     });
   };
@@ -47,18 +48,11 @@ const HealthNews: React.FC = () => {
   }, []);
   return (
     <div>
-      <h1>Health News from across the World</h1>
+      <h1 className="main-heading">Health News from across the World</h1>
       {loading ? (
         <Spinner animation="grow" variant="primary" />
       ) : (
-        <div
-          style={{
-            display: 'grid',
-            gap: '20px',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            marginLeft: '10px',
-          }}
-        >
+        <div className="health">
           {newsItem.map((news) => (
             <div
               key={news.id}
