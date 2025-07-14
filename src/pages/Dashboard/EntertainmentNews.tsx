@@ -3,6 +3,7 @@ import type { NewsItem } from '../../type/type';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import('./Entertainment.css');
 
 const apikey = import.meta.env.VITE_API_KEY;
 const EntertainmentNews: React.FC = () => {
@@ -35,7 +36,7 @@ const EntertainmentNews: React.FC = () => {
   };
 
   const handleReadMore = (news: NewsItem) => {
-    navigate(`/dashboard/dashboard/news/${news.id}`, {
+    navigate(`/dashboard/news/${news.id}`, {
       state: { news },
     });
   };
@@ -46,6 +47,7 @@ const EntertainmentNews: React.FC = () => {
   return (
     <div>
       <h1
+        className="main-heading"
         style={{ textAlign: 'center', padding: '10px', paddingBottom: '40px' }}
       >
         Entertainment Daily
@@ -53,14 +55,7 @@ const EntertainmentNews: React.FC = () => {
       {loading ? (
         <Spinner animation="grow" variant="primary" />
       ) : (
-        <div
-          style={{
-            display: 'grid',
-            gap: '20px',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            marginLeft: '10px',
-          }}
-        >
+        <div className="entertainment">
           {newsItem.map((news) => (
             <div
               key={news.id}

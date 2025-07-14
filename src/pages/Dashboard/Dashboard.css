@@ -1,0 +1,50 @@
+.dashboard {
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 800px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-heading {
+    text-align: center;
+    padding-left: 0;
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+  .main-heading {
+    text-align: center;
+    padding-left: 0;
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .main-heading {
+    text-align: center;
+    padding-left: 0;
+    margin-top: 80px;
+  }
+}
