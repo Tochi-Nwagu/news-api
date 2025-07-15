@@ -34,6 +34,8 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     fetchHeadlines();
+   console.log("Deployed API key:", import.meta.env.VITE_NEWS_API_KEY);
+
   }, []);
 
   return (
